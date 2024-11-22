@@ -8,7 +8,7 @@ export default {
             dark: {
                 bg: "#16161A",
                 titles: "#FFFFFE",
-                texts: "#94A1B2",
+                texts: "#b0bed1",
                 primary: "#7F5AF0",
                 secondary: "#2CB67D",
                 strokes: "#010101",
