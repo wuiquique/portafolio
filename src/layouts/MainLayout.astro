@@ -1,10 +1,11 @@
 ---
+import BgSvg from "../components/BgSvg.astro";
+import Linkedin from "../icons/Linkedin/Linkedin.astro";
+import LinkedinOutline from "../icons/Linkedin/LinkedinOutline.astro";
 import Moon from "../icons/Moon/Moon.astro";
 import MoonOutline from "../icons/Moon/MoonOutline.astro";
 import Sun from "../icons/Sun/Sun.astro";
 import SunOutline from "../icons/Sun/SunOutline.astro";
-
-
 ---
 
 <html lang="en">
@@ -13,28 +14,68 @@ import SunOutline from "../icons/Sun/SunOutline.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Astro</title>
   </head>
   <body
-    class="bg-light-bg dark:bg-dark-bg transition-all duration-300 mx-20"
+    class="bg-light-bg dark:bg-dark-bg transition-all duration-300 px-6 sm:px-8 md:px-14 lg:px-20 relative overflow-hidden"
   >
-    <header class="flex items-center text-light-titles dark:text-dark-titles my-10">
-        <h2 class="font-titles font-semibold text-2xl flex-1">wuiquique</h2>
-        <div class="w-40 h-0.5 bg-light-titles dark:bg-dark-titles mx-10"></div>
-        <button id="theme-toggle" class="group transition-all duration-300 w-14 aspect-square rounded-full flex justify-center items-center">
-            <div class="block dark:hidden relative">
-                <Moon svgClass="w-10 aspect-square transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
-                <MoonOutline svgClass="w-10 aspect-square transition-opacity duration-500 group-hover:opacity-0 absolute inset-0" />
-            </div>
-              <span class="hidden dark:block relative">
-                <Sun svgClass="w-10 aspect-square transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
-                <SunOutline svgClass="w-10 aspect-square transition-opacity duration-500 group-hover:opacity-0 absolute inset-0" />
-              </span>
-        </button>
+    <div class="absolute w-screen h-screen -top-72 left-0 opacity-70">
+        <BgSvg />
+    </div>
+    <div
+      id="page-loader"
+      class="absolute w-screen h-screen bg-dark-bg dark:bg-light-bg -top-10 left-0 z-50 transition-transform duration-1000 ease-in-out"
+    >
+    </div>
+    <header
+      id="main-header"
+      class="flex items-center text-light-titles dark:text-dark-titles my-10 opacity-0 translate-y-10 transition-all duration-1000 ease-in-out delay-500"
+    >
+      <a
+        href="/"
+        class="font-titles font-semibold text-2xl flex-1 transition-all duration-300 text-light-titles dark:text-dark-titles"
+        >wuiquique</a
+      >
+      <a
+        href="https://www.linkedin.com/in/luis-enrique-menendez-figueroa-6953a925b/"
+        class="relative group flex justify-center items-center"
+      >
+        <LinkedinOutline
+          svgClass="w-8 aspect-square transition-opacity duration-500 fill-light-titles dark:fill-dark-titles group-hover:fill-light-texts dark:group-hover:fill-dark-texts"
+        />
+      </a>
+      <div
+        class="w-4 sm:w-10 md:w-20 lg:w-40 h-0.5 bg-light-titles dark:bg-dark-titles mx-10"
+      >
+      </div>
+      <button
+        id="theme-toggle"
+        class="group transition-all duration-300 w-14 aspect-square rounded-full flex justify-center items-center"
+      >
+        <div class="block dark:hidden relative">
+          <Moon
+            svgClass="w-10 aspect-square transition-opacity duration-500 opacity-0 group-hover:opacity-100 fill-light-titles"
+          />
+          <MoonOutline
+            svgClass="w-10 aspect-square transition-opacity duration-500 group-hover:opacity-0 absolute inset-0 fill-light-titles"
+          />
+        </div>
+        <span class="hidden dark:block relative">
+          <Sun
+            svgClass="w-10 aspect-square transition-opacity duration-500 opacity-0 group-hover:opacity-100 fill-dark-titles"
+          />
+          <SunOutline
+            svgClass="w-10 aspect-square transition-opacity duration-500 group-hover:opacity-0 absolute inset-0 fill-dark-titles"
+          />
+        </span>
+      </button>
     </header>
-    <main>
-        <slot />
+    <main class="opacity-0 translate-y-10 transition-all duration-1000 ease-in-out delay-500">
+      <slot />
     </main>
   </body>
 </html>
@@ -49,21 +90,41 @@ import SunOutline from "../icons/Sun/SunOutline.astro";
   const themeToggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
 
-  // Carga el tema desde localStorage (si existe)
   if (localStorage.getItem("theme") === "dark") {
     html.classList.add("dark");
   } else {
     html.classList.remove("dark");
   }
 
-  // Cambia entre los temas al hacer clic en el botón
   themeToggle.addEventListener("click", () => {
     html.classList.toggle("dark");
-    // Guarda la preferencia del usuario
     if (html.classList.contains("dark")) {
       localStorage.setItem("theme", "dark");
     } else {
       localStorage.setItem("theme", "light");
     }
+  });
+</script>
+
+<script>
+  const pageLoader = document.getElementById("page-loader");
+
+  window.addEventListener("load", () => {
+    pageLoader.style.transform = "translateY(-100%)";
+
+    setTimeout(() => {
+      pageLoader.style.display = "none";
+    }, 1000);
+  });
+</script>
+
+<script>
+  window.addEventListener("load", () => {
+    const elementsToAnimate = document.querySelectorAll(
+      "#main-header, main"
+    );
+    elementsToAnimate.forEach((el) => {
+      el.classList.remove("opacity-0", "translate-y-10");
+    });
   });
 </script>
