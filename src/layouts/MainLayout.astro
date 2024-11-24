@@ -23,8 +23,9 @@ import SunOutline from "../icons/Sun/SunOutline.astro";
   <body
     class="bg-light-bg dark:bg-dark-bg transition-all duration-300 px-6 sm:px-8 md:px-14 lg:px-20 relative overflow-hidden"
   >
-    <div class="absolute w-screen h-screen -top-72 left-0 opacity-70">
-        <BgSvg />
+    <div id="mouse-circle"></div>
+    <div class="absolute w-screen h-screen -top-72 left-0 -z-50 opacity-75">
+      <BgSvg />
     </div>
     <div
       id="page-loader"
@@ -74,11 +75,29 @@ import SunOutline from "../icons/Sun/SunOutline.astro";
         </span>
       </button>
     </header>
-    <main class="opacity-0 translate-y-10 transition-all duration-1000 ease-in-out delay-500">
+    <main
+      class="opacity-0 translate-y-10 transition-all duration-1000 ease-in-out delay-500"
+    >
       <slot />
     </main>
   </body>
 </html>
+
+<style is:global>
+  #mouse-circle {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    z-index: 9999;
+    /* opacity: 25%; */
+  }
+</style>
 
 <script>
   if (localStorage.getItem("theme") === "dark") {
@@ -120,11 +139,19 @@ import SunOutline from "../icons/Sun/SunOutline.astro";
 
 <script>
   window.addEventListener("load", () => {
-    const elementsToAnimate = document.querySelectorAll(
-      "#main-header, main"
-    );
+    const elementsToAnimate = document.querySelectorAll("#main-header, main");
     elementsToAnimate.forEach((el) => {
       el.classList.remove("opacity-0", "translate-y-10");
     });
+  });
+</script>
+
+<script>
+  const mouseCircle = document.getElementById("mouse-circle");
+
+  document.addEventListener("mousemove", (event) => {
+    const { clientX: x, clientY: y } = event;
+    mouseCircle.style.left = `${x}px`;
+    mouseCircle.style.top = `${y}px`;
   });
 </script>
