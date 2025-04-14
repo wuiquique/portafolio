@@ -1,0 +1,102 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<div class="mt-20 mb-20 flex flex-col items-center">
+  <h2
+    class="text-light-titles dark:text-dark-titles font-titles text-3xl font-bold text-center"
+  >
+    Projects
+  </h2>
+  <div class="w-20 h-2 bg-light-primary dark:bg-dark-primary rounded-xl mt-4">
+  </div>
+  <p
+    class="text-light-texts dark:text-dark-texts font-texts text-lg text-center mt-8 w-96 md:w-[620px]"
+  >
+    Here you’ll find a selection of the projects I’ve worked on—ranging from web
+    platforms to native iOS apps. These projects represent not only what I’ve
+    built, but also how I think, learn, and solve real-world problems through
+    code.
+  </p>
+
+  <!-- Beat Prophet -->
+  <ProjectCard
+    title="Beat Prophet"
+    description="The web platform was designed to help emerging artists gain insight into the potential popularity of their songs on Spotify. Through a clean and intuitive interface, users can search for tracks and artists, receive personalized popularity predictions, and get strategic recommendations to boost their visibility. Built on a client-server architecture, the system is modular, scalable, and easy to maintain, while offering a fully responsive experience across all devices. By combining data visualization, analysis of musical attributes, and recommendation features, the platform provides artists with a practical tool to explore trends and make informed decisions within the music industry. Its all-in-one design empowers independent musicians to refine their release strategies and discover new collaboration opportunities."
+    image={1}
+    link="https://beatprophet.wuiquique.com/"
+    front="https://github.com/wuiquique/front_predictive"
+    back="https://github.com/wuiquique/back_predictive"
+    skills={[
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Python",
+      "FastAPI",
+      "Pydantic",
+      "Scikit-learn",
+      "Spotify Web API",
+      "Client-server",
+      "Docker",
+    ]}
+  />
+
+  <!-- Cami -->
+  <ProjectCard
+    title="Cami App"
+    description="This project consists of a robust ERP platform built to streamline document management and automate business workflows. I developed a CRM module tailored for sales and client relationship management, ensuring that commercial interactions are efficiently tracked and nurtured. As part of the development team, I led a full redesign focused on improving both the user experience and the visual aesthetics of the system. The platform also includes tools for managing digital financial services, project oversight, and operational processes, all unified within a centralized system. My work involved designing, maintaining, and deploying key features that ensured platform reliability, while aligning with the evolving needs of its users."
+    image={2}
+    skills={[
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Python",
+      "FastAPI",
+      "MongoDB",
+      "Firebase",
+      "PostgreSQL",
+      "Docker",
+    ]}
+    nda
+  />
+
+  <!-- SMID -->
+  <ProjectCard
+    title="SM Import Diesel"
+    description="This landing page was developed based on the client’s custom design and specific guidelines, aiming to provide a seamless browsing and ordering experience. The site features a fully customizable product carousel and supports the upload of an unlimited number of items. Customers can easily place orders through WhatsApp, thanks to the integrated ordering functionality. Once delivered, the platform’s maintenance and content updates—including product management and image uploads—were fully delegated to the client, ensuring long-term autonomy and flexibility."
+    image={3}
+    link="https://smimportdiesel.com/"
+    codeNda
+    skills={["HTML", "CSS", "JavaScript", "Astro", "React"]}
+  />
+
+  <!-- Spotify -->
+  <ProjectCard
+    title="Spotify Clone"
+    description="This project is a work-in-progress clone of Spotify, aiming to replicate the core experience of music streaming platforms. It aims on replicate user interface components inspired by Spotify’s clean and responsive design. The goal is to build a fully visual front-end experience that mimics the flow and structure of the original app."
+    image={4}
+    front="https://github.com/wuiquique/spotify_clone"
+    skills={["HTML", "CSS", "JavaScript", "Astro"]}
+  />
+
+  <!-- Todo -->
+  <ProjectCard
+    title="Todo List App"
+    description="This iOS application is a simple yet elegant Todo List system organized around projects and individual tasks. Designed from the ground up, the app focuses on delivering a clean and visually appealing user experience. It allows users to create and manage projects, add tasks, and keep track of their progress with ease. The backend was developed to handle task and project management in a straightforward and efficient manner, supporting a smooth and responsive interface. The project reflects a full-cycle development process—from initial design concepts to implementation and optimization."
+    image={5}
+    front="https://github.com/wuiquique/todo-list-ios"
+    back="https://github.com/wuiquique/todo-list-backend"
+    skills={[
+      "Swift",
+      "SwiftUI",
+      "XCode",
+      "Python",
+      "FastAPI",
+      "SQLite",
+      "Docker",
+    ]}
+    isApp
+  />
+</div>

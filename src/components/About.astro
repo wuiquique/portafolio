@@ -1,0 +1,60 @@
+---
+import Badge from "./Badge.astro";
+import { skills } from "../lib/constants"
+---
+
+<div class="mt-20 flex flex-col items-center">
+  <h2
+    class="text-light-titles dark:text-dark-titles font-titles text-3xl font-bold text-center"
+  >
+    About Me
+  </h2>
+  <div class="w-20 h-2 bg-light-primary dark:bg-dark-primary rounded-xl mt-4">
+  </div>
+  <p
+    class="text-light-texts dark:text-dark-texts font-texts text-lg text-center mt-8 w-96 md:w-[620px]"
+  >
+    I'm a passionate software engineer with a strong focus on user-centered
+    design and full-stack development. In this section, you'll learn more about
+    what I do and the technologies I work with to bring ideas to life.
+  </p>
+</div>
+
+<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+  <div>
+    <h3
+      class="text-light-titles dark:text-dark-titles font-titles text-lg font-semibold text-start"
+    >
+      Get to know me!
+    </h3>
+    <p class="text-light-texts dark:text-dark-texts font-texts">
+      When working on <b>web projects</b>, I aim to build responsive and accessible
+      interfaces that adapt seamlessly across devices. I place a strong emphasis
+      on design consistency and front-end architecture that scales. Whether it’s
+      a portfolio site, a landing page, a content platform, or an internal dashboard, I enjoy
+      refining the <b>user experience</b> to make interactions feel intuitive and
+      natural.
+      <br /><br />
+      In the <b>mobile</b> world, I specialize in <b>iOS development</b>, where I
+      focus on delivering smooth, reliable, and visually polished applications.
+      I enjoy working with design systems and prototyping features that feel
+      native to the platform. My goal is to create apps that not only work well
+      but also feel delightful to use—paying close attention to motion,
+      gestures, and micro-interactions that enhance the overall experience.
+      <br /><br />
+      Whether I’m working on a personal project or collaborating with a team, I’m driven by the goal of <b>building experiences that people genuinely enjoy using</b>. I’m always open to new opportunities where I can apply my skills, grow as a developer, and contribute meaningfully to products that make a difference. I believe that <b>great software</b> is built through <b>collaboration</b>, <b>curiosity</b>, and a <b>deep understanding of user needs</b>—and I’m excited to be part of projects that share that vision.
+    </p>
+  </div>
+  <div>
+    <h3
+      class="text-light-titles dark:text-dark-titles font-titles text-lg font-semibold text-start"
+    >
+      My Skills
+    </h3>
+    <div class="flex flex-wrap gap-4 mt-2">
+        {skills.map((item) => (
+            <Badge>{item}</Badge>
+        ))}
+    </div>
+  </div>
+</div>

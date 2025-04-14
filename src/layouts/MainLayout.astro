@@ -1,6 +1,4 @@
 ---
-import BgSvg from "../components/BgSvg.astro";
-import Linkedin from "../icons/Linkedin/Linkedin.astro";
 import LinkedinOutline from "../icons/Linkedin/LinkedinOutline.astro";
 import Moon from "../icons/Moon/Moon.astro";
 import MoonOutline from "../icons/Moon/MoonOutline.astro";
@@ -11,22 +9,18 @@ import SunOutline from "../icons/Sun/SunOutline.astro";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.webp" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
     <link
       href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Astro</title>
+    <title>wuiquique</title>
   </head>
   <body
-    class="bg-light-bg dark:bg-dark-bg transition-all duration-300 px-6 sm:px-8 md:px-14 lg:px-20 relative overflow-hidden"
+    class="bg-light-bg dark:bg-dark-bg transition-all duration-300 px-6 sm:px-8 md:px-14 lg:px-20 relative overflow-scroll"
   >
-    <div id="mouse-circle"></div>
-    <div class="absolute w-screen h-screen -top-72 left-0 -z-50 opacity-75">
-      <BgSvg />
-    </div>
+    <div id="mouse-circle" class="invisible md:visible"></div>
     <div
       id="page-loader"
       class="absolute w-screen h-screen bg-dark-bg dark:bg-light-bg -top-10 left-0 z-50 transition-transform duration-1000 ease-in-out"
@@ -34,7 +28,7 @@ import SunOutline from "../icons/Sun/SunOutline.astro";
     </div>
     <header
       id="main-header"
-      class="flex items-center text-light-titles dark:text-dark-titles my-10 opacity-0 translate-y-10 transition-all duration-1000 ease-in-out delay-500"
+      class="flex items-center text-light-titles dark:text-dark-titles py-10 opacity-0 translate-y-10 transition-all duration-1000 ease-in-out delay-500"
     >
       <a
         href="/"

@@ -16,7 +16,7 @@ export default {
             light: {
                 bg: "#F3F3F3",
                 titles: "#000000",
-                texts: "#40454D",
+                texts: "#5f656e",
                 primary: "#7F5AF0",
                 secondary: "#2CB67D",
                 strokes: "#FFFFFF",
